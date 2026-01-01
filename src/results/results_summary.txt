@@ -1,0 +1,111 @@
+Data splits:
+  Full MECO: 33433 observations
+  First occurrences: 1213 observations
+  Unique words: 1213
+
+================================================================================
+OLS REGRESSION RESULTS — FULL MECO
+================================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  dur_z   R-squared:                       0.050
+Model:                            OLS   Adj. R-squared:                  0.050
+Method:                 Least Squares   F-statistic:                     539.5
+Date:                Thu, 01 Jan 2026   Prob (F-statistic):               0.00
+Time:                        20:44:52   Log-Likelihood:                -33151.
+No. Observations:               30719   AIC:                         6.631e+04
+Df Residuals:                   30715   BIC:                         6.634e+04
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.5159      0.013    -39.784      0.000      -0.541      -0.490
+surprisal      0.0120      0.001     14.671      0.000       0.010       0.014
+log_freq      -2.1597      0.849     -2.543      0.011      -3.824      -0.495
+word_len       0.0401      0.001     29.156      0.000       0.037       0.043
+==============================================================================
+Omnibus:                     8239.781   Durbin-Watson:                   1.465
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            19436.525
+Skew:                           1.513   Prob(JB):                         0.00
+Kurtosis:                       5.456   Cond. No.                     2.62e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.62e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+================================================================================
+OLS REGRESSION RESULTS — FIRST OCCURRENCES ONLY
+================================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  dur_z   R-squared:                       0.079
+Model:                            OLS   Adj. R-squared:                  0.077
+Method:                 Least Squares   F-statistic:                     32.16
+Date:                Thu, 01 Jan 2026   Prob (F-statistic):           6.05e-20
+Time:                        20:44:52   Log-Likelihood:                -878.17
+No. Observations:                1129   AIC:                             1764.
+Df Residuals:                    1125   BIC:                             1784.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.6253      0.050    -12.461      0.000      -0.724      -0.527
+surprisal      0.0177      0.003      5.592      0.000       0.012       0.024
+log_freq      -4.7870      7.759     -0.617      0.537     -20.012      10.438
+word_len       0.0354      0.005      6.643      0.000       0.025       0.046
+==============================================================================
+
+Omnibus:                      410.067   Durbin-Watson:                   1.514
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1529.169
+Skew:                           1.741   Prob(JB):                         0.00
+Kurtosis:                       7.515   Cond. No.                     6.06e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 6.06e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+Loading WMT data...
+
+Running gaze-informed MT...
+
+Evaluating difficulty results...
+
+Difficulty summary:
+baseline_mean: -0.4601
+gaze_mean: -0.4610
+mean_difference: -0.0008
+std_difference: 0.0032
+
+Wilcoxon signed-rank test:
+{'statistic': 0.0, 'p_value': 0.043114446783075355}
+
+Evaluating BLEU...
+BLEU baseline: 36.37
+BLEU gaze:     36.40
+
+Most divergent examples (by difficulty difference):
+
+Δ difficulty = 0.0184
+RU: КПК больше не представляет рабочих и крестьян, но может представлять «большинство китайского народа», включая «красных» капиталистов.
+BASE: KPC no longer represents workers and peasants, but can represent "most Chinese people", including "red" capitalists.
+GAZE: KPC no longer represents workers and peasants, but can represent the majority of the Chinese people, including "red" capitalists.
+REF: The CCP no longer represents workers and peasants, but it can represent the "majority of the people," including "red" capitalists.
+------------------------------------------------------------
+Δ difficulty = 0.0120
+RU: Выжившие в рабстве как резерв в борьбе с торговлей людьми
+BASE: The survivors of slavery as a reserve in the fight against trafficking
+GAZE: Survivors of slavery as a reserve in the fight against human trafficking
+REF: Enlist Survivors in the Fight Against Human Trafficking
+------------------------------------------------------------
+Δ difficulty = 0.0073
+RU: Соответственно, у нас должно быть право собственности на эту часть, причём у всех нас, а не только у некоторых.
+BASE: Accordingly, we must have ownership of this part, with all of us, not just some.
+GAZE: Accordingly, we must have ownership of this part, with all of us, not just some of us.
+REF: Property rights over that portion – for all of us, rather than for any of us – must follow.
+------------------------------------------------------------
